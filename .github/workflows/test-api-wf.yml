@@ -18,7 +18,7 @@ jobs:
                     - 27017:27017 # now we made images of both on docker compose to run
         steps:
             - name: dump services context
-              run: echo '${{toJson(job.service)}}'
+              run: echo '${{toJson(job.services)}}'
             - name: Post A new User
               run: 'curl -X POST http://localhost:3001/api/users -H '' Content-Type: application/json'' -d ''{"username": "hello","address": "dwed"}''' # we hit the localhost and the app port exposed
             - name: Get Users

@@ -15,7 +15,7 @@ jobs:
             mongo:
                 image: mongo
                 ports:
-                    - 27017:207017 # now we made images of both on docker compose to run
+                    - 27017:27017 # now we made images of both on docker compose to run
         steps:
             - name: dump services context
               run: echo '${{toJson(job.service)}}'

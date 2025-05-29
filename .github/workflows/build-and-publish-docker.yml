@@ -40,3 +40,7 @@ jobs:
                 push: true
                 tags: ${{steps.metadata.outputs.tags}}
                 labels: ${{steps.metadata.outputs.labels}}
+            - name: log lavels and tags
+              run: | 
+                echo ${{steps.metadata.outputs.tags}}
+                echo ${{steps.metadata.outputs.labels}}

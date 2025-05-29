@@ -4,6 +4,7 @@ on: [push, workflow_dispatch]
 jobs:
     test-api:
         runs-on: ubuntu-latest
+        container: ubuntu:20.04
         #we usedd constainer there here we user services
         services:
             app:
@@ -17,6 +18,10 @@ jobs:
                 ports:
                     - 27017:27017 # now we made images of both on docker compose to run
         steps:
+            - name: Install curl
+              run: |
+                apt-get -y update
+                apt-get -y install curl
             - name: dump services context
               run: echo '${{toJson(job.services)}}'
             - name: Post A new User
